@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# '-s' (is regular file, with size)
+# '-l' (is symbolic link)
+# '-d' (is directory)
+# 'ornext|OR' (or next condition)
+# 'nocase|NC' (no case)
+# 'last|L' (last rule)
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ createthumb.php?path=%{REQUEST_URI} [NC,L]
+
+</IfModule>
