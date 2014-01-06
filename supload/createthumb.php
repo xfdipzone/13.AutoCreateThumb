@@ -62,6 +62,8 @@ if($is_wait){ // 需要等待生成
         ob_clean();
         header('content-type:'.mime_content_type($dest));
         exit(file_get_contents($dest));
+    }else{
+        exit(); // 生成失败退出
     }
 }
 
