@@ -328,12 +328,11 @@ class PicThumb{ // class start
                 }
                 break;
             case 'crop':
-                if($owidth>$oheight){
+                $pic_w = $width;
+                $pic_h = (int)($pic_w*$oheight/$owidth);
+                if($pic_h<$height){
                     $pic_h = $height;
                     $pic_w = (int)($pic_h*$owidth/$oheight);
-                }else{
-                    $pic_w = $width;
-                    $pic_h = (int)($pic_w*$oheight/$owidth);
                 }
                 break;
         }
